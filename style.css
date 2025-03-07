@@ -19,16 +19,16 @@ main {
 
 .grid {
     display: grid;
-    gap: 5px;
+    gap: 10px;
     grid-template-columns: repeat(4, 1fr);
 }
 
 button {
-    width: 100px;
-    height: 50px;
+    width: 64px;
+    height: 64px;
     font-size: 1.5rem;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 100%;
     cursor: pointer;
 }
 
