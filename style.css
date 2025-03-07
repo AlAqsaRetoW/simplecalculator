@@ -14,7 +14,7 @@ main {
     border: 1px solid grey;
     padding: 24px;
     border-radius: 10px;
-    background-color: #1c1f26;
+    background-color: rgb(56, 56, 56);
 }
 
 .grid {
@@ -37,6 +37,16 @@ h1 {
 }
 
 .orange {
-    background-color: orange;
+    background-color: rgb(255, 149, 3);
+    color: #fff;
+}
+
+.gray {
+    background-color: rgb(128, 128, 128);
+    color: #fff;
+}
+
+.gray-num {
+    background-color: rgb(97, 97, 97);
     color: #fff;
 }
