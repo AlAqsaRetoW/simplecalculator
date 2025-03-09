@@ -12,7 +12,7 @@ const btnEight = document.querySelector("#btnEight");
 const btnNine = document.querySelector("#btnNine");
 
 const isOperator = (char) => {
-    return ['+', '-', '*', '/', '%'].includes(char);
+    return ['+', '-', '*', '/', '%', '.'].includes(char);
 }
 
 const operator = (operator) => {
@@ -20,14 +20,6 @@ const operator = (operator) => {
 
     if (!isOperator(lastChar)) {
         display.innerText += operator;
-    }
-}
-
-const calc = (num) => {
-    if (display.innerText == "0") {
-        display.innerText = num;
-    } else {
-        display.innerText += num;
     }
 }
 
@@ -51,14 +43,44 @@ const percent = () => {
     operator("%");
 }
 
+const point = () => {
+    operator(".")
+}
+
+const calc = (num) => {
+    if (display.innerText == "0") {
+        display.innerText = num;
+    } else {
+        display.innerText += num;
+    }
+}
+
 const reset = () => {
     display.innerText = "0";
 }
 
-const point = () => {
-    display.innerText += "."
+const res = () => {
+    let expression = display.innerText.replace(/%/g, "/100");
+
+    try {
+        display.innerText = eval(expression);
+    } catch (error) {
+        display.innerText = "Error";
+        setTimeout(() => {
+            display.innerText = "0";
+        }, 1000);
+    }
 }
 
-const res = () => {
-    display.innerText = eval(display.innerText)
+const percentOp = () => {
+    const currentValue = display.innerText;
+
+    if (currentValue !== "0") {
+        const parts = currentValue.split(/[\+\-\*\/]/);
+        const lastNumber = parts[parts.length - 1];
+        if (lastNumber) {
+            const percentValue = parseFloat(lastNumber) / 100;
+            display.innerText = currentValue.substring(0, currentValue.length - lastNumber.length) + percentValue;
+        }
+    }
 }
