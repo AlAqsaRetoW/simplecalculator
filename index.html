@@ -14,14 +14,14 @@
         <div class="card">
             <h1 class="display">0</h1>
             <div class="grid">
-                <button id="btnClear" class="gray" onclick="">AC</button>
+                <button id="btnClear" class="gray" onclick="reset()">AC</button>
                 <button id="btnPosNeg" class="gray" onclick="">+/-</button>
-                <button id="btnPercent" class="gray" onclick="">%</button>
-                <button id="btnDivide" class="orange" onclick="">/</button>
+                <button id="btnPercent" class="gray" onclick="percent()">%</button>
+                <button id="btnDivide" class="orange" onclick="divide()">/</button>
                 <button id="btnSeven" class="gray-num" onclick="calc(7)">7</button>
                 <button id="btnEight" class="gray-num" onclick="calc(8)">8</button>
                 <button id="btnNine" class="gray-num" onclick="calc(9)">9</button>
-                <button id="btnMultiply" class="orange" onclick="">X</button>
+                <button id="btnMultiply" class="orange" onclick="multiply()">X</button>
                 <button id="btnFour" class="gray-num" onclick="calc(4)">4</button>
                 <button id="btnFive" class="gray-num" onclick="calc(5)">5</button>
                 <button id="btnSix" class="gray-num" onclick="calc(6)">6</button>
@@ -32,7 +32,7 @@
                 <button id="btnAdd" class="orange" onclick="add()">+</button>
                 <button class="gray-num" onclick=""></button>
                 <button id="btnZero" class="gray-num" onclick="calc(0)">0</button>
-                <button id="btnComma" class="gray-num" onclick="">,</button>
+                <button id="btnComma" class="gray-num" onclick="point()">,</button>
                 <button id="btnEqual" class="orange" onclick="res()">=</button>
             </div>
         </div>
