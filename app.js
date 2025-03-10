@@ -47,6 +47,19 @@ const point = () => {
     operator(".")
 }
 
+const percentOp = () => {
+    const currentValue = display.innerText;
+
+    if (currentValue !== "0") {
+        const parts = currentValue.split(/[\+\-\*\/]/);
+        const lastNumber = parts[parts.length - 1];
+        if (lastNumber) {
+            const percentValue = parseFloat(lastNumber) / 100;
+            display.innerText = currentValue.substring(0, currentValue.length - lastNumber.length) + percentValue;
+        }
+    }
+}
+
 const calc = (num) => {
     if (display.innerText == "0") {
         display.innerText = num;
@@ -69,18 +82,5 @@ const res = () => {
         setTimeout(() => {
             display.innerText = "0";
         }, 1000);
-    }
-}
-
-const percentOp = () => {
-    const currentValue = display.innerText;
-
-    if (currentValue !== "0") {
-        const parts = currentValue.split(/[\+\-\*\/]/);
-        const lastNumber = parts[parts.length - 1];
-        if (lastNumber) {
-            const percentValue = parseFloat(lastNumber) / 100;
-            display.innerText = currentValue.substring(0, currentValue.length - lastNumber.length) + percentValue;
-        }
     }
 }
