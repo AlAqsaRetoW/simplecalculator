@@ -1,4 +1,4 @@
-const display = document.querySelector(".display");
+const display = document.querySelector('.display');
 
 const btnZero = document.querySelector("#btnZero");
 const btnOne = document.querySelector("#btnOne");
@@ -44,7 +44,28 @@ const percent = () => {
 }
 
 const point = () => {
-    operator(".")
+    const displayValue = display.innerText;
+    
+    // Get the last part of the expression (after the last operator)
+    const parts = displayValue.split(/[\+\-\*\/]/);
+    const lastPart = parts[parts.length - 1];
+    
+    // If the last part already contains a decimal point, don't add another
+    if (!lastPart.includes('.')) {
+        // If display shows only 0, add "0."
+        if (displayValue === "0") {
+            display.innerText += ".";
+        } else {
+            // Add decimal point only if last character isn't already an operator
+            const lastChar = displayValue.slice(-1);
+            if (!isOperator(lastChar)) {
+                display.innerText += '.';
+            } else {
+                // If last character is an operator, add "0."
+                display.innerText += "0.";
+            }
+        }
+    }
 }
 
 const percentOp = () => {
